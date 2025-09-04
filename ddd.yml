@@ -1,0 +1,8 @@
+pool: MyAgentPool
+- task: DotNetCoreCLI@2
+  inputs:
+    azureSubscription: 'Azure subscription 1(2bc6faae-e29c-401e-b3bf-dacfcdace89f)'
+    command: 'build'
+    projects: '/workspaces/mslearn-tailspin-spacegame-web'
+steps:
+- bash: echo hello world
