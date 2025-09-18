@@ -1,0 +1,9 @@
+pool: 
+  name: 'Azure Pipelines'
+
+steps:
+- task: DotNetCoreCLI@2
+variables:
+  azureSubscription: 'Azure subscription 1(2bc6faae-e29c-401e-b3bf-dacfcdace89f)'
+  command: 'build'
+  projects: '/workspaces/mslearn-tailspin-spacegame-web'
