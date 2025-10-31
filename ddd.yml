@@ -21,6 +21,16 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+- task: UseNode@1
+    inputs:
+      version: '16.x'
+    displayName: 'Install Node.js'
+  - script: |
+      npm install
+      npm run build --if-present
+      npm run test --if-present
+    displayName: 'npm install, build and test'
+
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
@@ -64,6 +74,7 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
 
 
 
